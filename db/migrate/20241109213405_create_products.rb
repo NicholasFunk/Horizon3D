@@ -2,9 +2,9 @@ class CreateProducts < ActiveRecord::Migration[7.2]
   def change
     create_table :products do |t|
       t.string :name
-      t.string :email
-      t.string :address
-      t.integer :phone
+      t.decimal :price
+      t.text :description
+      t.integer :stock_quantity
 
       t.timestamps
     end
