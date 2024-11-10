@@ -8,4 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+200.times do
 
+    name = Faker::Commerce.product_name
+    price = Faker::Commerce.price
+    description = "This is a test product."
+    product = Product.create(name: name, price: price, description: )
+    
+end
