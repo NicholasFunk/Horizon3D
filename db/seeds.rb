@@ -16,6 +16,6 @@ Product.destroy_all
     price = Faker::Commerce.price
     description = "This is a test product."
     stock_quantity = Faker::Number.number(digits: 2)
-    product = Product.create(name: name, price: price, description: description, stock_quantity: )
+    product = Product.create(name: name, price: price, description: description, stock_quantity: stock_quantity)
 
 end

@@ -1,0 +1,12 @@
+<ul class="cell">
+    <li><%= product.name %></li>
+    <li><%= product.description %></li>
+    <li>Price: $<%= product.price %></li>
+    <% if product.stock_quantity == 0 %>
+        <li>Unavailable</li>
+    <% else %>
+        <li>Available: <%= product.stock_quantity %></li>
+    <% end %>
+</ul>
+
+
