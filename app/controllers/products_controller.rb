@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  PRODUCTS_PER_PAGE = 20
+  PRODUCTS_PER_PAGE = 24
   NUMBER_OF_PRODUCTS = Product.count
 
 
