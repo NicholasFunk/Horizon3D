@@ -19,3 +19,4 @@ Product.destroy_all
     product = Product.create(name: name, price: price, description: description, stock_quantity: stock_quantity)
 
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
