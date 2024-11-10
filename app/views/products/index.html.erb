@@ -3,3 +3,9 @@
 <div class="grid">
     <%= render @products %>
 </div>
+
+# pagination
+<div>
+    <%= link_to "Previous", products_path(page: @page - 1)%>
+    <%= link_to "Next", products_path(page: @page + 1)%>
+</div>
