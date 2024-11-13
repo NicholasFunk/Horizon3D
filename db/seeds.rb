@@ -9,14 +9,22 @@
 #   end
 
 Product.destroy_all
+Category.destroy_all
 
-200.times do
+# Generate some cateogories
+categories = ["Printer", "Filament", "Resin", "Safety"]
+
+categories.each do |cateogory|
+    Category.create(name: category)
+end
+
+40.times do
 
     name = Faker::Commerce.product_name
     price = Faker::Commerce.price
     description = "This is a test product."
     stock_quantity = Faker::Number.number(digits: 2)
-    product = Product.create(name: name, price: price, description: description, stock_quantity: stock_quantity)
+    product = Product.create(name: name, price: price, description: description, stock_quantity: stock_quantity, category_id: Category.pluck[:id])
 
 end
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
