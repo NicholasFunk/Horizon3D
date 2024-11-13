@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   resources :products
 
+  # Change this to a proper home page.
   root "products#index"
   
   
