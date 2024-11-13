@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get "categories/index"
   get "categories/show"
   
-  resources :products
+  resources :products do
+    collection do
+      get 'search', to: 'products#search'
+    end
+  end
 
   # Change this to a proper home page.
   root "products#index"
