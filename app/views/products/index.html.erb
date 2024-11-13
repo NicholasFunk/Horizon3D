@@ -5,7 +5,14 @@
 </div>
 
 <div>
-    <%= link_to "Previous", products_path(page: @page - 1)%>
-    |
-    <%= link_to "Next", products_path(page: @page + 1)%>
+    
+    <% if @page != 0 %>
+         <%= link_to "Previous", products_path(page: @page - 1)%>
+    <% end %>
+    
+    <% if @page != @total_pages - 1 %>
+        <%= link_to "Next", products_path(page: @page + 1)%>
+    <% end %>
+    
+    
 </div>

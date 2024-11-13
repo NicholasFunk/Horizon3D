@@ -1,6 +1,6 @@
-<%= link_to product do %>
+
 <ul class="cell">
-    <li><%= product.name %></li>
+    <li class="title is-6"><%= link_to product.name, product %></li>
     <li>Price: $<%= product.price %></li>
     <% if product.stock_quantity == 0 %>
         <li>Unavailable</li>
@@ -8,7 +8,6 @@
         <li>Available: <%= product.stock_quantity %></li>
     <% end %>
 </ul>
-<% end %>
 
 
 
