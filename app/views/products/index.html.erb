@@ -4,13 +4,8 @@
     <%= render @products %>
 </div>
 
-# pagination
 <div>
-    <% if @page != 0 %>
-        <%= link_to "Previous", products_path(page: @page - 1)%>
-    <% end %>
-
-    <% if @page != @page_max %>
-        <%= link_to "Next", products_path(page: @page + 1)%>
-    <% end %>
+    <%= link_to "Previous", products_path(page: @page - 1)%>
+    |
+    <%= link_to "Next", products_path(page: @page + 1)%>
 </div>
