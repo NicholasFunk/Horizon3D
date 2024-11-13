@@ -1,13 +1,13 @@
 
-<ul class="cell">
-    <li class="title is-6"><%= link_to product.name, product %></li>
-    <li>Price: $<%= product.price %></li>
+<div class="product-cell">
+    <p class="title is-6"><%= link_to product.name, product %></p>
+    <p>Price: $<%= product.price %></p>
     <% if product.stock_quantity == 0 %>
-        <li>Unavailable</li>
+        <p>Unavailable</p>
     <% else %>
-        <li>Available: <%= product.stock_quantity %></li>
+        <p>Available: <%= product.stock_quantity %></p>
     <% end %>
-</ul>
+</div>
 
 
 
