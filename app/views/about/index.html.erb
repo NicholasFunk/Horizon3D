@@ -1,2 +1,6 @@
 <h1 class="title is-2">About</h1>
-<p>Find me in app/views/about/index.html.erb</p>
+
+<% @about.each do |about|%>
+    <p><%= about.description %></p>
+<% end %>
+

@@ -5,7 +5,7 @@ ActiveAdmin.register About do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :description
+  permit_params :description
   #
   # or
   #
