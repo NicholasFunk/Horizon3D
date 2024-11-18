@@ -1,17 +1,26 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# Author: Nicholas Funk
+# Date: 2024-11-17
+
+require 'net/http'
+require 'json'
 
 AdminUser.destroy_all
 Product.destroy_all
 Category.destroy_all
 
+# fetch prices from the fakestoreapi.com
+url_products = URI.parse('https://fakestoreapi.com/products')
+response = Net::HTTP.get_response(url_products)
+products_data = JSON.parse(response.body)
+
+pricelist = []
+
+products_data.each do |product|
+    puts product["price"]
+    pricelist << product["price"]
+end
+
+puts pricelist
 
 # Generate some categories
 categories = ["Printer", "Material", "Safety", "Misc"]
@@ -21,12 +30,12 @@ categories.each do |category|
 end
 
 100.times do
-    category = Faker::Number.between(from: 1, to: 4)
+    category = Category.all
     name = Faker::Commerce.product_name
-    price = Faker::Commerce.price
-    description = "This is a test product."
+    price = pricelist.sample
+    description = "This #{category.sample.name} item, is a test product."
     stock_quantity = Faker::Number.number(digits: 2)
-    product = Product.create(name: name, price: price, description: description, stock_quantity: stock_quantity, category_id: Category.pluck(:id).sample)
+    product = Product.create(name: name, price: price, description: description, stock_quantity: stock_quantity, category_id: category.sample.id)
 
 end
 
