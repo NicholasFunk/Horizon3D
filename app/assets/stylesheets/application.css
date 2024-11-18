@@ -32,3 +32,10 @@ li {
     list-style: none;
 }
 
+#page_indicator {
+    display: inline;
+    position: absolute;
+    clear: right;
+    margin: 0 auto;
+    width: 50%;
+}

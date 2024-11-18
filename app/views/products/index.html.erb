@@ -17,6 +17,7 @@
             <%= link_to "Next", products_path(page: @page + 1)%>
         </div>
     <% end %>
-    
+
+     <p id="page_indicator"><%= @page + 1 %> : <%= @total_pages %></p>
     
 </nav>
