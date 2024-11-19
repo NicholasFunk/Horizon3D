@@ -1,5 +1,10 @@
 <% if @show_product.present? %>
-    <p>test</p>
+    <img src="" alt="Product image">
+    <p class="title is-6"><%= link_to product.name, product %></p>
+    <p>Price: $<%=  product.price %></p>
+    <p>About this item</p>
+    <p><%= product.description %></p>
+
 
 <% else %>
 
@@ -16,7 +21,7 @@
 
     <div class="button">
         <div class="quantity">
-            <%= number_field :quantity %>
+            
 
         </div>
         <% if cart.include?(product) %>
