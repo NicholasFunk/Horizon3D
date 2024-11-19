@@ -1,4 +1,10 @@
-<h1 class="title">All Products</h1>
+
+<% if @category.present? %>
+    <h1 class="title"><%= @category.name %></h1>
+<% else %>
+    <h1 class="title">All Products</h1>
+<% end %>
+
 
 <div class="grid">
     <%= render @products %>

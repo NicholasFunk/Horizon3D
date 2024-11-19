@@ -10,7 +10,8 @@ class ProductsController < ApplicationController
     @total_pages = (TOTAL_PRODUCTS + PAGE_SIZE - 1) / PAGE_SIZE
 
     if params[:search_by_category].present?
-        @products = @products.joins(:category).where(categories: {id: params[:search_by_category]})
+        @category = Category.find(params[:search_by_category])
+        @products = @products.joins(:category).where(categories: {id: @category.id})
     end
 
     if @page < 0
