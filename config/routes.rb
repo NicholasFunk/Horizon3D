@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "categories/index"
   get "categories/show"
 
+  resources :cart, only: %i[ create destroy ]
   resources :products do
     collection do
       get "search", to: "products#search"

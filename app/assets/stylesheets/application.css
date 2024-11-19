@@ -25,7 +25,22 @@
     flex-direction: column;
     width: 150px;
     margin: 50px;
+    height: 200px;
     
+    
+}
+
+.product-cell .title {
+    height: 50px;
+}
+
+.product-cell .button {
+    
+    bottom: 0;
+}
+
+.button {
+    width: 100%;
 }
 
 li {
@@ -44,3 +59,4 @@ footer {
     position: relative;
     bottom: 0px;
 }
+
