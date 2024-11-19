@@ -53,7 +53,7 @@
             </div>
             
 
-            <div class="cart">
+            <div class="button is-primary">
               <li>
                 Cart
                 <% if cart.present? %>
@@ -74,5 +74,12 @@
 
       <%= yield %>
     </div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>Horizon 3D - <%= Time.current.year %></p>
+      </div>
+      
+    </footer>
   </body>
 </html>

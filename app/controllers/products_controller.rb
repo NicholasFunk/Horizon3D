@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
     @products = Product.offset(@page * PAGE_SIZE).limit(PAGE_SIZE)
     @categories = Category.all
     @total_pages = (TOTAL_PRODUCTS + PAGE_SIZE - 1) / PAGE_SIZE
+    
 
     if params[:search_by_category].present?
         @category = Category.find(params[:search_by_category])
@@ -24,6 +25,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @show_product = params[:id].present?
     @product = Product.find(params[:id])
   end
 
