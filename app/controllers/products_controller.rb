@@ -8,11 +8,11 @@ class ProductsController < ApplicationController
     @products = Product.offset(@page * PAGE_SIZE).limit(PAGE_SIZE)
     @categories = Category.all
     @total_pages = (TOTAL_PRODUCTS + PAGE_SIZE - 1) / PAGE_SIZE
-    
+
 
     if params[:search_by_category].present?
         @category = Category.find(params[:search_by_category])
-        @products = @products.joins(:category).where(categories: {id: @category.id})
+        @products = @products.joins(:category).where(categories: { id: @category.id })
     end
 
     if @page < 0
@@ -33,5 +33,4 @@ class ProductsController < ApplicationController
     @products = Product.where("name LIKE ? OR description LIKE ?", "%#{params[:search_term]}%", "%#{params[:search_term]}%")
     @categories = Category.all
   end
-
 end

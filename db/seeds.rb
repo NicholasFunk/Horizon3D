@@ -23,7 +23,7 @@ end
 puts pricelist
 
 # Generate some categories
-categories = ["Printer", "Material", "Safety", "Misc"]
+categories = [ "Printer", "Material", "Safety", "Misc" ]
 
 categories.each do |category|
     Category.create(name: category)
@@ -36,7 +36,6 @@ end
     description = "This #{category.name} item, is a test product."
     stock_quantity = Faker::Number.number(digits: 2)
     product = Product.create(name: name, price: price, description: description, stock_quantity: stock_quantity, category_id: category.id)
-
 end
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
