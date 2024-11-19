@@ -30,12 +30,12 @@ categories.each do |category|
 end
 
 100.times do
-    category = Category.all
+    category = Category.all.sample
     name = Faker::Commerce.product_name
     price = pricelist.sample
-    description = "This #{category.sample.name} item, is a test product."
+    description = "This #{category.name} item, is a test product."
     stock_quantity = Faker::Number.number(digits: 2)
-    product = Product.create(name: name, price: price, description: description, stock_quantity: stock_quantity, category_id: category.sample.id)
+    product = Product.create(name: name, price: price, description: description, stock_quantity: stock_quantity, category_id: category.id)
 
 end
 
