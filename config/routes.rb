@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   end
 
   # Change this to a proper home page.
-  root "products#index"
+  root to: "products#index"
 end

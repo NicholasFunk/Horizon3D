@@ -14,6 +14,7 @@ class CartController < ApplicationController
             session[:cart].delete(@product.id)
             flash[:notice] = "#{@product.name} was removed from cart!"
         end
+        
         redirect_to root_path
     end
 

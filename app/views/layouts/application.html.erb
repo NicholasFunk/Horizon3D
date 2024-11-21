@@ -52,19 +52,30 @@
               </div>
             </div>
             
+            <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                    Cart
+                  </a>
 
-            <div class="button is-primary">
-              <li>
-                Cart
-                <% if cart.present? %>
-                  <sup><%= cart.size %></sup>
-                  <ul>
+                  <div class="navbar-dropdown">
+                    <% if cart.present? %>
+                    
+                    <ul>
+                      <% cart.each do |product| %>
+                        <li>
+                          <%= link_to '✖️', cart_path(product), class: "navbar-item", method: :delete %><%= product.name %>
+                        </li>
+                      <% end %>
+                    </ul>
+                  <% end %>
+                </div>
 
-                  </ul>
-                <% end %>
-              </li>
-            </div>
+            
           </nav>
+
+
+          
+
 
 
 
