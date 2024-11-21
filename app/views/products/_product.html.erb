@@ -1,6 +1,7 @@
 <% if @show_product.present? %>
     <img src="" alt="Product image">
     <h2 class="title is-6"><%= product.name %></h2>
+    <h3 class="title is-7"><%= product.category.name %></h3>
     <p>Price: $<%=  product.price %></p>
     <p>About this item</p>
     <p><%= product.description %></p>
