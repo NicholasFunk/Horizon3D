@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   get "contact/index", to: "contact#index"
   get "about/index", to: "about#index"
   devise_for :admin_users, ActiveAdmin::Devise.config
