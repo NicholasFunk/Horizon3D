@@ -64,9 +64,12 @@
                     
                     <ul>
                       <% cart.each do |product| %>
-                        <li>
-                          <%= link_to '✖️', cart_path(product), class: "navbar-item", method: :delete %><%= product.name %>
-                        </li>
+                        
+
+                        <%= button_to cart_path(product), method: :delete do %>
+                          ❌
+                        <% end %>
+                        <%= product.name %>
                       <% end %>
                     </ul>
                   <% end %>
