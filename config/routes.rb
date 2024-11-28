@@ -7,6 +7,14 @@ Rails.application.routes.draw do
   get "categories/index"
   get "categories/show"
 
+  resources :users
+  get '/signup', to: 'users#new', as: 'signup'
+
+  get '/login', to: 'sessions#login', as: '/login'
+  post '/login', to: 'sessions#create'
+  post '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
+
   resources :cart, only: %i[ create destroy ]
   
   resources :products do

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    skip_before_action only: [:new, :create]
+    
     def show
         # find the user in the database and display their information.
         @user = User.find(params[:id])
@@ -12,7 +14,7 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         if @user.valid?
-            session[:user_id = @user.id]
+            session[:user_id] = @user.id
             redirect_to @user
         else
             flash[:error] = "Not a valid username or password"
