@@ -37,6 +37,8 @@
                 <%= link_to 'All Products', products_path, class: "navbar-item" %>
                 <%= link_to 'Contact', contact_index_path, class: "navbar-item" %>
 
+                
+
                 <div class="navbar-item has-dropdown is-hoverable">
                   <a class="navbar-link">
                     Categories
@@ -68,7 +70,15 @@
                       <% end %>
                     </ul>
                   <% end %>
-                </div>
+                  </div>
+            </div>
+
+
+            <% if session[:user_id] %>
+              <%= link_to 'Logout', logout_path, class: "navbar-item" %>
+            <% else %>
+              <%= link_to 'Login', login_path, class: "navbar-item" %>
+            <% end %>
 
             
           </nav>
