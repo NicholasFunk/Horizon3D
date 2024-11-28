@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "categories/show"
 
   resources :users
+  
   get '/signup', to: 'users#new', as: 'signup'
 
   get '/login', to: 'sessions#login', as: '/login'
