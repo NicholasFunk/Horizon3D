@@ -77,7 +77,10 @@
             <% if session[:user_id] %>
               <%= link_to 'Logout', logout_path, class: "navbar-item" %>
               
-              <%= link_to 'My Account', user_path(@user.id) %>
+              <% if @user %>
+                <%= link_to 'My Account', user_path(@user.id), class: "navbar-item" %>
+              <% end %>
+
             <% else %>
               <%= link_to 'Login', login_path, class: "navbar-item" %>
               <%= link_to 'Signup', signup_path, class: "navbar-item" %>
