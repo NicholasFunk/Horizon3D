@@ -1,7 +1,7 @@
 <%= form_with model: @user do |f| %>
     <%=f.label "Username"%>
-    <%=f.text_field :username%><br>
+    <%=f.text_field :username, class: 'input'%><br>
     <%=f.label "Password"%> 
-    <%=f.password_field :password%><br>
-    <%=f.submit "Create Account"%>
+    <%=f.password_field :password, class: 'input'%><br>
+    <%=f.submit "Create Account", class: 'button'%>
 <%end%>
