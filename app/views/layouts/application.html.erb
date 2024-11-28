@@ -53,31 +53,39 @@
                 </div>
               </div>
             </div>
-            
-            <div class="navbar-item has-dropdown is-hoverable">
-                  <a class="navbar-link">
-                    Cart
-                  </a>
-
-                  <div class="navbar-dropdown">
-                    <% if cart.present? %>
-                    
-                    <ul>
-                      <% cart.each do |product| %>
-                        
-
-                        <%= button_to cart_path(product), method: :delete do %>
-                          ❌
-                        <% end %>
-                        <%= product.name %>
-                      <% end %>
-                    </ul>
-                  <% end %>
-                  </div>
-            </div>
-
 
             <% if session[:user_id] %>
+            
+              <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                      Cart
+                    </a>
+
+                    <div class="navbar-dropdown">
+                      <% if cart.present? %>
+                      
+                      <ul>
+                        <% cart.each do |product| %>
+                          <%= button_to cart_path(product), method: :delete do %>
+                            ❌
+                          <% end %>
+                          
+                          <%= product.name %>
+                        <% end %>
+                      </ul>
+                    <% end %>
+
+                    
+                    <% if !session[:cart].empty? %>
+                      <%= link_to 'Checkout 🛒➡️' %>
+                    <% end %>
+                    
+
+                    </div>
+              </div>
+
+
+            
               <%= link_to 'Logout', logout_path, class: "navbar-item" %>
               
               <% if @user %>
