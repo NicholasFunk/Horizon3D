@@ -77,7 +77,12 @@
 
                     
                     <% if !session[:cart].empty? %>
-                      <%= link_to 'Checkout 🛒➡️' %>
+                      <%= link_to 'Checkout 🛒➡️', checkout_create_path, method: :post %>
+                    <% end %>
+
+                    <%= form_with url: checkout_create_path, method: :post do %>
+                      
+                      <%= button_tag "Checkout" %>
                     <% end %>
                     
 

@@ -24,6 +24,7 @@ gem "devise"
 gem "activeadmin"
 gem "sassc-rails"
 gem "bcrypt"
+gem "stripe"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

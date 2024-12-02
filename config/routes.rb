@@ -24,6 +24,12 @@ Rails.application.routes.draw do
     end
   end
 
+  scope "/checkout" do
+    post "create", to: "checkout#create", as: "checkout_create"
+    get "success", to: "checkout#success", as: "checkout_success"
+    get "cancel", to: "checkout#cancel", as: "checkout_cancel"
+  end
+
   # Change this to a proper home page.
   root to: "products#index"
 end
