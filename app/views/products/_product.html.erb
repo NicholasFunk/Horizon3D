@@ -11,7 +11,7 @@
 
 <div class="product-cell">
     <p class="title is-6"><%= link_to product.name, product %></p>
-    <p>Price: $<%=  product.price %></p>
+    <p>Price: $<%=  number_to_currency(product.price) %></p>
     <% if product.stock_quantity == 0 %>
         <p>--Unavailable--</p>
     <% else %>
