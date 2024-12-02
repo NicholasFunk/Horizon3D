@@ -35,7 +35,10 @@
             <%= button_tag "Add to cart" %>
             <% end %>
         <% end %>
+        
     </div>
+
+    <%= button_to "Buy now", checkout_create_path, params: {id: product.id}, remote: true, data: {turbo: false}, class: "button"%>
     
 </div>
 

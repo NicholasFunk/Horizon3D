@@ -7,7 +7,7 @@ class CheckoutController < ApplicationController
         # redirect the user to the checkout page
 
         # fetch the product in question!
-        product = Product.find(params[:product_id])
+        product = Product.find(params[:id])
 
         if product.nil?
             redirect_to root_path
@@ -15,7 +15,7 @@ class CheckoutController < ApplicationController
         end
 
         #establish connection with Stipe
-        @session = Stripe::Checkout::Session.create(
+        @session = Stripe::Checkout::Session.create({
             payment_method_types: ["card"],
             success_url: checkout_success_url,
             cancel_url: checkout_cancel_url,
@@ -27,11 +27,14 @@ class CheckoutController < ApplicationController
                         name: product.name,
                         description: product.description,
                     }, 
-                    unit_amount: product.price_cents,
+                    unit_amount: product.price.to_i,
                 },
                 quantity: 1
-            ]
-        )
+            ],
+            mode: 'payment',
+            success_url: root_url,
+            cancel_url: root_url
+        })
 
         redirect_to @session.url, allow_other_host: true
     end
@@ -45,4 +48,3 @@ class CheckoutController < ApplicationController
     end
 
 end
-
