@@ -35,7 +35,7 @@ end
     price = pricelist.sample
     description = "This #{category.name} item, is a test product."
     stock_quantity = Faker::Number.number(digits: 2)
-    product = Product.create(name: name, price: price, description: description, stock_quantity: stock_quantity, category_id: category.id)
+    product = Product.create(name: name, price: price.to_i * 100, description: description, stock_quantity: stock_quantity, category_id: category.id)
 end
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
